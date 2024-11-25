@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认真看一百本书 - AI智能读书助手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-reader"></i> 认真看一百本书</h1>
+            <nav>
+                <button id="aiAssistantBtn"><i class="fas fa-robot"></i> AI助手</button>
+                <button id="addBookBtn"><i class="fas fa-plus"></i> 添加新书</button>
+                <button id="searchBtn"><i class="fas fa-search"></i> 搜索</button>
+            </nav>
+        </header>
+
+        <main>
+            <div class="reading-stats">
+                <div class="stat-card">
+                    <h3>阅读目标</h3>
+                    <p><span id="booksRead">0</span>/100 本</p>
+                    <div class="progress-circle">
+                        <div class="progress-value">0%</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>本月阅读</h3>
+                    <p><span id="monthlyRead">0</span> 小时</p>
+                    <div class="reading-trend">
+                        <!-- 阅读趋势图表将在JS中渲染 -->
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>阅读效率</h3>
+                    <p>每天 <span id="dailyPages">0</span> 页</p>
+                    <div class="efficiency-indicator">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>较上月提升10%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-categories">
+                <button class="active">全部</button>
+                <button>正在阅读</button>
+                <button>已完成</button>
+                <button>计划阅读</button>
+            </div>
+
+            <div class="book-list">
+                <h2>我的书架</h2>
+                <div id="bookGrid" class="book-grid"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- AI助手弹窗 -->
+    <div id="aiAssistantModal" class="modal">
+        <div class="modal-content ai-assistant">
+            <h2><i class="fas fa-robot"></i> AI读书助手</h2>
+            <div class="ai-features">
+                <button class="ai-feature-btn" data-feature="summary">
+                    <i class="fas fa-file-alt"></i>
+                    生成内容概要
+                </button>
+                <button class="ai-feature-btn" data-feature="mindmap">
+                    <i class="fas fa-project-diagram"></i>
+                    创建思维导图
+                </button>
+                <button class="ai-feature-btn" data-feature="quiz">
+                    <i class="fas fa-question-circle"></i>
+                    生成理解测验
+                </button>
+                <button class="ai-feature-btn" data-feature="recommend">
+                    <i class="fas fa-book"></i>
+                    智能推荐书籍
+                </button>
+            </div>
+            <div class="ai-chat">
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="问我任何关于读书的问题...">
+                    <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- 添加新书弹窗 -->
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <h2>添加新书</h2>
+            <form id="addBookForm">
+                <div class="form-group">
+                    <label>书名</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label>作者</label>
+                    <input type="text" name="author" required>
+                </div>
+                <div class="form-group">
+                    <label>封面图片URL</label>
+                    <input type="text" name="cover">
+                </div>
+                <div class="form-group">
+                    <label>书籍简介</label>
+                    <textarea name="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>总页数</label>
+                    <input type="number" name="totalPages">
+                </div>
+                <div class="form-group">
+                    <label>分类</label>
+                    <select name="category">
+                        <option value="文学">文学</option>
+                        <option value="科技">科技</option>
+                        <option value="历史">历史</option>
+                        <option value="哲学">哲学</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">保存</button>
+                    <button type="button" class="close-btn">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 书籍详情弹窗 -->
+    <div id="bookDetailModal" class="modal">
+        <div class="modal-content book-detail">
+            <div class="book-header">
+                <img src="" alt="" class="book-cover">
+                <div class="book-info">
+                    <h2 class="book-title"></h2>
+                    <p class="book-author"></p>
+                    <div class="reading-progress">
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="book-actions">
+                <button class="update-progress">更新进度</button>
+                <button class="add-note">添加笔记</button>
+                <button class="ai-analyze">AI分析</button>
+            </div>
+            <div class="book-notes">
+                <h3>我的笔记</h3>
+                <div class="notes-list"></div>
+            </div>
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

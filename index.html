@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>认真看一百本书</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .search-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .search-btn {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .book-detail {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .ai-analysis {
+            margin-top: 20px;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>认真看一百本书</h1>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="输入书名搜索">
+            <button class="search-btn" onclick="searchBook()">搜索</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function searchBook() {
+            const input = document.querySelector('.search-input');
+            const keyword = input.value.trim();
+            if (!keyword) {
+                alert('请输入书名');
+                return;
+            }
+
+            try {
+                // 模拟API调用
+                const bookInfo = {
+                    name: keyword,
+                    author: '测试作者',
+                    summary: '这是一本关于' + keyword + '的书...'
+                };
+
+                const aiAnalysis = {
+                    coreConcepts: [
+                        { title: '核心概念1', description: '这是概念1的解释' },
+                        { title: '核心概念2', description: '这是概念2的解释' }
+                    ],
+                    background: '这是书籍的背景介绍...',
+                    keyPoints: [
+                        '关键点1',
+                        '关键点2',
+                        '关键点3'
+                    ]
+                };
+
+                displayResult(bookInfo, aiAnalysis);
+            } catch (error) {
+                alert('搜索失败，请重试');
+            }
+        }
+
+        function displayResult(bookInfo, aiAnalysis) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="book-detail">
+                    <h2>${bookInfo.name}</h2>
+                    <p>作者：${bookInfo.author}</p>
+                    <p>${bookInfo.summary}</p>
+                    
+                    <div class="ai-analysis">
+                        <div class="section">
+                            <div class="section-title">核心概念</div>
+                            ${aiAnalysis.coreConcepts.map(concept => `
+                                <div>
+                                    <h4>${concept.title}</h4>
+                                    <p>${concept.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="section">
+                            <div class="section-title">背景资料</div>
+                            <p>${aiAnalysis.background}</p>
+                        </div>
+                        
+                        <div class="section">
+                            <div class="section-title">关键要点</div>
+                            <ul>
+                                ${aiAnalysis.keyPoints.map(point => `
+                                    <li>${point}</li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,8 @@
+<view class="book-card" bindtap="onTapBook">
+  <image class="book-cover" src="{{book.coverUrl}}" mode="aspectFill"/>
+  <view class="book-info">
+    <text class="book-title">{{book.name}}</text>
+    <text class="book-author">{{book.author}}</text>
+    <view class="book-summary">{{book.summary}}</view>
+  </view>
+</view> 

@@ -1,0 +1,32 @@
+<view class="chat-container">
+  <scroll-view 
+    class="chat-messages" 
+    scroll-y 
+    scroll-into-view="msg-{{messages.length-1}}"
+  >
+    <view 
+      class="message {{item.type}}" 
+      wx:for="{{messages}}" 
+      wx:key="index"
+      id="msg-{{index}}"
+    >
+      <view class="avatar" wx:if="{{item.type === 'ai'}}">AI</view>
+      <view class="content">{{item.content}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="input-area">
+    <input 
+      class="chat-input"
+      value="{{inputValue}}"
+      bindinput="onInput"
+      placeholder="输入你的问题..."
+      disabled="{{loading}}"
+    />
+    <button 
+      class="send-btn" 
+      bindtap="sendMessage"
+      loading="{{loading}}"
+    >发送</button>
+  </view>
+</view> 

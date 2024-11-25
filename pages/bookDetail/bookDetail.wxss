@@ -1,0 +1,113 @@
+.container {
+  padding: 20rpx;
+}
+
+.book-header {
+  display: flex;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.book-cover {
+  width: 240rpx;
+  height: 320rpx;
+  border-radius: 8rpx;
+}
+
+.book-meta {
+  flex: 1;
+  margin-left: 30rpx;
+}
+
+.book-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.book-author {
+  font-size: 28rpx;
+  color: #666;
+  margin: 10rpx 0;
+}
+
+.save-btn {
+  margin-top: 20rpx;
+  background: #4CAF50;
+  color: white;
+  font-size: 28rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+}
+
+.analysis-section {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+}
+
+.section-header {
+  margin: 20rpx 0;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.concept-list {
+  margin: 20rpx 0;
+}
+
+.concept-item {
+  margin-bottom: 20rpx;
+}
+
+.concept-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.concept-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.background-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.key-points {
+  margin: 20rpx 0;
+}
+
+.point-item {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.point-number {
+  width: 40rpx;
+  height: 40rpx;
+  background: #4CAF50;
+  color: white;
+  border-radius: 20rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}
+
+.point-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+} 

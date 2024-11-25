@@ -1,0 +1,39 @@
+.book-card {
+  display: flex;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.book-cover {
+  width: 180rpx;
+  height: 240rpx;
+  border-radius: 8rpx;
+}
+
+.book-info {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.book-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.book-author {
+  font-size: 28rpx;
+  color: #666;
+  margin: 10rpx 0;
+}
+
+.book-summary {
+  font-size: 26rpx;
+  color: #999;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+} 

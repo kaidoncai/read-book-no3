@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/bookDetail/bookDetail",
+    "pages/myBooks/myBooks"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "认真看一百本书",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/myBooks/myBooks",
+        "text": "书架"
+      }
+    ]
+  }
+} 

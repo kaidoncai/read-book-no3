@@ -1,0 +1,30 @@
+<view class="note-editor">
+  <view class="toolbar">
+    <view class="tool-item" bindtap="toggleEdit">
+      <text class="iconfont icon-edit"></text>
+    </view>
+    <view class="tool-item" bindtap="saveNote">
+      <text class="iconfont icon-save"></text>
+    </view>
+  </view>
+
+  <textarea 
+    class="note-content"
+    value="{{content}}"
+    bindinput="onContentChange"
+    bindtextselect="onTextSelect"
+    show-confirm-bar="{{false}}"
+    disabled="{{!isEditing}}"
+  />
+
+  <view class="action-sheet" wx:if="{{showActionSheet}}">
+    <view class="action-item" bindtap="addHighlight">
+      <text class="iconfont icon-highlight"></text>
+      <text>添加标注</text>
+    </view>
+    <view class="action-item" bindtap="askAI">
+      <text class="iconfont icon-ai"></text>
+      <text>询问AI助手</text>
+    </view>
+  </view>
+</view> 

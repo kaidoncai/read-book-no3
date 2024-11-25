@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="book-info">
+    <image class="book-cover" src="{{bookInfo.coverUrl}}" mode="aspectFill"/>
+    <view class="book-meta">
+      <text class="book-title">{{bookInfo.name}}</text>
+      <text class="book-author">{{bookInfo.author}}</text>
+    </view>
+  </view>
+
+  <view class="ai-analysis">
+    <view class="section">
+      <text class="section-title">核心概念</text>
+      <view class="concept-list">
+        <view class="concept-item" wx:for="{{aiAnalysis.coreConcepts}}" wx:key="index">
+          <text class="concept-title">{{item.title}}</text>
+          <text class="concept-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <text class="section-title">背景资料</text>
+      <text class="background-text">{{aiAnalysis.background}}</text>
+    </view>
+
+    <view class="section">
+      <text class="section-title">关键要点</text>
+      <view class="key-points">
+        <text class="point-item" wx:for="{{aiAnalysis.keyPoints}}" wx:key="index">
+          {{index + 1}}. {{item}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <button class="ai-chat-btn" bindtap="toggleAiChat">
+    AI助手问答
+  </button>
+
+  <view class="ai-chat" wx:if="{{showAiChat}}">
+    <!-- AI对话组件 -->
+  </view>
+</view> 

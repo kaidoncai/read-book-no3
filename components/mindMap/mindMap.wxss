@@ -1,0 +1,72 @@
+.mind-map {
+  position: relative;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 16rpx 24rpx;
+  border-radius: 8rpx;
+  max-width: 200rpx;
+  text-align: center;
+  font-size: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.node.central {
+  background: #4CAF50;
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 24rpx 36rpx;
+  z-index: 2;
+}
+
+.node.topic {
+  background: #81C784;
+  color: white;
+  z-index: 1;
+}
+
+.node.subtopic {
+  background: #C8E6C9;
+  color: #2E7D32;
+}
+
+.node:active {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.line {
+  position: absolute;
+  height: 2rpx;
+  background: #4CAF50;
+  opacity: 0.6;
+  transform-origin: left center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.zoom-controls {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.zoom-btn {
+  width: 60rpx;
+  height: 60rpx;
+  background: white;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+} 

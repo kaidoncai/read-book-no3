@@ -1,0 +1,15 @@
+hundred-books/
+├── pages/
+│   ├── index/
+│   ├── bookDetail/
+│   ├── myBooks/
+│   ├── notes/
+│   └── aiChat/
+├── components/
+│   ├── bookCard/
+│   ├── searchBar/
+│   ├── noteEditor/
+│   └── aiChatBox/
+├── utils/
+│   └── api.js
+└── app.js 

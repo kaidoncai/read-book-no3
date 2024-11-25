@@ -1,0 +1,28 @@
+<view class="mind-map" style="width:{{width}}rpx;height:{{height}}rpx;transform:scale({{scale}})">
+  <canvas type="2d" id="mindMapCanvas" style="width:100%;height:100%;"></canvas>
+  
+  <view 
+    wx:for="{{nodes}}" 
+    wx:key="id"
+    class="node {{item.type}}"
+    style="left:{{item.x}}rpx;top:{{item.y}}rpx;"
+    data-id="{{item.id}}"
+    bindtouchstart="onNodeDragStart"
+    bindtouchmove="onNodeDragMove"
+    bindtouchend="onNodeDragEnd"
+  >
+    <text>{{item.text}}</text>
+  </view>
+
+  <view 
+    wx:for="{{lines}}" 
+    wx:key="index"
+    class="line"
+    style="{{getLineStyle(item)}}"
+  ></view>
+
+  <view class="zoom-controls">
+    <view class="zoom-btn" bindtap="zoomIn">+</view>
+    <view class="zoom-btn" bindtap="zoomOut">-</view>
+  </view>
+</view> 

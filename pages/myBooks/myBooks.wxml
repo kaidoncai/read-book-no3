@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="index"
+      data-tab="{{index}}"
+      bindtap="switchTab"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <view class="book-list">
+    <block wx:if="{{!loading && books.length > 0}}">
+      <view class="book-item" wx:for="{{books}}" wx:key="id">
+        <book-card book="{{item}}" />
+        <view class="book-actions">
+          <picker 
+            bindchange="updateBookStatus" 
+            data-book-id="{{item.id}}"
+            range="{{tabs}}"
+          >
+            <button class="status-btn">修改状态</button>
+          </picker>
+        </view>
+      </view>
+    </block>
+    
+    <view wx:if="{{!loading && books.length === 0}}" class="empty-state">
+      <text>还没有添加任何书籍</text>
+      <navigator url="/pages/index/index" class="add-btn">去添加</navigator>
+    </view>
+  </view>
+</view> 
